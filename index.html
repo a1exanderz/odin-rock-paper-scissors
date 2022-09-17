@@ -18,6 +18,27 @@
           return "scissors";
         }
       }
+      function getPlayerChoice() {
+        let playerSelection = prompt("Pick rock, paper, or scissors.");
+
+        do {
+          if (
+            playerSelection.toLowerCase() === "rock" ||
+            playerSelection.toLowerCase() === "paper" ||
+            playerSelection.toLowerCase() === "scissors"
+          )
+            break;
+          playerSelection = prompt(
+            `${playerSelection} is not valid. Pick rock, paper, or scissors.`
+          );
+        } while (
+          playerSelection.toLowerCase() !== "rock" ||
+          playerSelection.toLowerCase() !== "paper" ||
+          playerSelection.toLowerCase() !== "scissors"
+        );
+
+        return playerSelection;
+      }
 
       function playRound(playerSelection, computerSelection) {
         playerSelection = playerSelection.toLowerCase();
@@ -55,7 +76,7 @@
         }
       }
 
-      const playerSelection = "rOck";
+      const playerSelection = getPlayerChoice();
       const computerSelection = getComputerChoice();
       console.log(playRound(playerSelection, computerSelection));
     </script>
